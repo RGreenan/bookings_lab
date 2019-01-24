@@ -19,7 +19,7 @@ public class CourseController {
     CourseRepository courseRepository;
 
     @GetMapping(value = "/rating/{rating}")
-    public List<Course>findCoursesWithRating(@PathVariable int rating){
+    public List<Course>findCoursesByStarRating(@PathVariable int rating){
         return courseRepository.findCoursesByStarRating(rating);
     }
 
