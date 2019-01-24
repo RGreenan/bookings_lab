@@ -1,6 +1,7 @@
 package com.codeclan.bookingLab.bookingLab.controllers;
 
 import com.codeclan.bookingLab.bookingLab.models.Course;
+import com.codeclan.bookingLab.bookingLab.models.Customer;
 import com.codeclan.bookingLab.bookingLab.repositories.CourseRepository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +21,10 @@ public class CourseController {
     @GetMapping(value = "/rating/{rating}")
     public List<Course>findCoursesWithRating(@PathVariable int rating){
         return courseRepository.findCoursesByStarRating(rating);
+    }
+
+    @GetMapping(value = "/customer/{id}")
+    public List<Course>findCoursesWithCustomer(@PathVariable Long id){
+        return courseRepository.findCoursesWithCustomer(id);
     }
 }
