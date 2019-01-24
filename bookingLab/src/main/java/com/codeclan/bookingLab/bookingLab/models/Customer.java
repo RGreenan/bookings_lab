@@ -1,5 +1,7 @@
 package com.codeclan.bookingLab.bookingLab.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ public class Customer {
     @Column(name = "age")
     private int age;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> customerBookings;
 
